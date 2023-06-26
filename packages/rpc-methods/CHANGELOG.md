@@ -6,6 +6,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0]
+### Uncategorized
+- Update package 'publish' scripts
+- monorepo: Update publishConfig to public
+- rpc-methods: Fix controllers type import
+- rpc-methods: Update invokePlugin per updated PluginController.add interface
+- rpc-methods: Update manageAssets to support 'getAll' asset method
+- rpc-methods: Use virtual rpc engine to access requestor domain in some methods; various tweaks
+- rpc-methods: Add snap_manageAssets restricted method
+- rpc-methods: Convert state methods to restricted
+- rpc-methods: Refactor internal permitted method exports
+- rpc-methods: Add getBip44Entropy, refactor internal restricted method exports
+- rpc-methods: Add selectHooks utility function
+- rpc-methods: Add hookNames property to handlers
+- rpc-methods: Update types, export names
+- monorepo: Add licenses, update npm registry
+- monorepo: Fix packages publishConfig
+- monorepo: Run lint without --fix in prepare scripts
+- controllers, rpc-methods: Add various RPC methods and hooks
+- rpc-methods: Add invokePlugin permission and methods
+- rpc-methods: Allow multiple method names for restricted methods
+- rpc-methods: Add restricted confirm method, update exports
+- monorepo: Add @mm-snap/rpc-methods package
+
 ## [1.0.0]
 ### Uncategorized
 - 0.35.2-flask.1 ([#1542](https://github.com/mcmire/snaps/pull/1542))
@@ -515,7 +539,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - First semi-stable release.
 
-[Unreleased]: https://github.com/mcmire/snaps/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/mcmire/snaps/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/mcmire/snaps/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/mcmire/snaps/compare/v0.35.2-flask.1...v1.0.0
 [0.35.2-flask.1]: https://github.com/mcmire/snaps/compare/v0.35.1-flask.1...v0.35.2-flask.1
 [0.35.1-flask.1]: https://github.com/mcmire/snaps/compare/v0.35.0-flask.1...v0.35.1-flask.1
