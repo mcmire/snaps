@@ -2,9 +2,6 @@ name: Publish Release
 
 on:
   workflow_call:
-    secrets:
-      NPM_TOKEN:
-        required: true
 
 jobs:
   publish-release:
@@ -19,7 +16,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-      - uses: MetaMask/action-publish-release@v3
+      - uses: MetaMask/action-publish-release@35f8cf6223596548250502f22b6ece7117b54952
         id: publish-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -51,52 +48,3 @@ jobs:
       - run: npm config set ignore-scripts true
       - name: Dry Run Publish
         uses: MetaMask/action-npm-publish@v3
-
-  npm-publish:
-    environment: npm-publish
-    runs-on: ubuntu-latest
-    needs: npm-publish-dry-run
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.sha }}
-      - uses: actions/cache@v3
-        id: restore-build
-        with:
-          path: |
-            ./packages/**/dist
-            ./node_modules
-          key: ${{ github.sha }}
-      - name: Get release tag
-        id: get-release-tag
-        run: echo "tag=$(yarn get-release-tag)" >> "$GITHUB_OUTPUT"
-        shell: bash
-      - run: npm config set ignore-scripts true
-      - name: Publish ${{ steps.get-release-tag.outputs.tag }}
-        uses: MetaMask/action-npm-publish@v3
-        with:
-          npm-token: ${{ secrets.NPM_TOKEN }}
-          npm-tag: ${{ steps.get-release-tag.outputs.tag }}
-
-  get-release-version:
-    runs-on: ubuntu-latest
-    needs: publish-release
-    outputs:
-      RELEASE_VERSION: ${{ steps.get-release-version.outputs.RELEASE_VERSION }}
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.sha }}
-      - id: get-release-version
-        shell: bash
-        run: ./scripts/get.sh ".version" "RELEASE_VERSION"
-
-  publish-environment:
-    needs: get-release-version
-    name: Publish iframe execution environment
-    permissions:
-      id-token: write
-      contents: read
-    uses: ./.github/workflows/publish-environment.yml
-    with:
-      destination_dir: ${{ needs.get-release-version.outputs.RELEASE_VERSION }}
