@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0]
+### Changed
+- Test changelog entry
+
 ## [0.35.2-flask.1]
 ### Fixed
 - Fix type issue introduced by [#1532](https://github.com/MetaMask/snaps/pull/1532) ([#1541](https://github.com/MetaMask/snaps/pull/1541))
@@ -352,7 +356,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Example snaps ([#72](https://github.com/MetaMask/snaps-monorepo/pull/72))
   - The examples now live in their own package, [`@metamask/snap-examples`](https://npmjs.com/package/@metamask/snap-examples).
 
-[Unreleased]: https://github.com/MetaMask/snaps/compare/v0.35.2-flask.1...HEAD
+[Unreleased]: https://github.com/MetaMask/snaps/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/MetaMask/snaps/compare/v0.35.2-flask.1...v1.0.0
 [0.35.2-flask.1]: https://github.com/MetaMask/snaps/compare/v0.35.1-flask.1...v0.35.2-flask.1
 [0.35.1-flask.1]: https://github.com/MetaMask/snaps/compare/v0.35.0-flask.1...v0.35.1-flask.1
 [0.35.0-flask.1]: https://github.com/MetaMask/snaps/compare/v0.34.1-flask.1...v0.35.0-flask.1
